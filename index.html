@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Speed Test - UIII.ac.id</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🚀 Speed Test Internet</h1>
+            <p class="subtitle">Mengukur Kecepatan Koneksi ke <strong>uiii.ac.id</strong></p>
+            <button id="darkModeToggle" class="dark-mode-btn">🌙 Dark Mode</button>
+        </header>
+        <section class="test-section">
+            <button id="startTest" class="btn-primary">
+                <span class="btn-text">Start Speed Test</span>
+                <span class="btn-loader" style="display: none;">⏳ Testing...</span>
+            </button>
+            <div class="results-grid">
+                <div class="result-card">
+                    <div class="result-icon">📡</div>
+                    <h3>Latency (Ping)</h3>
+                    <div class="result-value" id="latencyValue">-- ms</div>
+                    <div class="result-status" id="latencyStatus">-</div>
+                </div>
+                <div class="result-card">
+                    <div class="result-icon">⬇️</div>
+                    <h3>Download Speed</h3>
+                    <div class="result-value" id="downloadValue">-- Mbps</div>
+                    <div class="result-status" id="downloadStatus">-</div>
+                </div>
+                <div class="result-card">
+                    <div class="result-icon">⬆️</div>
+                    <h3>Upload Speed</h3>
+                    <div class="result-value" id="uploadValue">-- Mbps</div>
+                    <div class="result-status" id="uploadStatus">-</div>
+                </div>
+            </div>
+            <div class="progress-container" id="progressContainer" style="display: none;">
+                <div class="progress-bar" id="progressBar"></div>
+                <div class="progress-text" id="progressText">0%</div>
+            </div>
+        </section>
+        <section class="chart-section">
+            <h2>📊 Grafik History</h2>
+            <div class="chart-container">
+                <canvas id="speedChart"></canvas>
+            </div>
+        </section>
+        <section class="auto-monitor-section">
+            <h2>🔄 Auto Monitoring</h2>
+            <div class="auto-monitor-controls">
+                <label class="checkbox-label">
+                    <input type="checkbox" id="autoMonitor">
+                    <span>Enable Auto Test</span>
+                </label>
+                <div class="interval-control">
+                    <label for="intervalInput">Interval (detik):</label>
+                    <input type="number" id="intervalInput" value="30" min="10" max="300">
+                </div>
+            </div>
+        </section>
+        <section class="history-section">
+            <div class="history-header">
+                <h2>📜 History Test</h2>
+                <div class="history-actions">
+                    <button id="exportCSV" class="btn-secondary">📥 Export CSV</button>
+                    <button id="exportJSON" class="btn-secondary">📥 Export JSON</button>
+                    <button id="clearHistory" class="btn-danger">🗑️ Clear History</button>
+                </div>
+            </div>
+            <div class="history-table-container">
+                <table id="historyTable">
+                    <thead>
+                        <tr>
+                            <th>Waktu</th>
+                            <th>Latency (ms)</th>
+                            <th>Download (Mbps)</th>
+                            <th>Upload (Mbps)</th>
+                        </tr>
+                    </thead>
+                    <tbody id="historyBody">
+                        <tr>
+                            <td colspan="4" class="no-data">Belum ada data test</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+        <footer>
+            <p>Made with ❤️ for UIII | © 2025</p>
+        </footer>
+    </div>
+    <script src="js/storage.js"></script>
+    <script src="js/speedtest.js"></script>
+    <script src="js/chart.js"></script>
+</body>
+</html>
